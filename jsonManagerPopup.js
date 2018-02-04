@@ -1,13 +1,12 @@
 (function() {
   'use strict';
   let input = document.createElement('input');
-  input.setAttribute('type ', 'file');
-  input.setAttribute('multiple');
-  input.addEventListener('onchange', getSelectedFiles);
+  input.setAttribute('type', 'file');
+  input.setAttribute('multiple', '');
+  input.addEventListener('change', getSelectedFiles);
 
 
   function selectFiles() {
-    console.log('calling click');
     input.click();
   }
 
@@ -17,7 +16,12 @@
       filesList.appendChild(document.createElement('li').appendChild(document.createTextNode('No files selected')));
     }
     else {
-      filesList.appendChild(document.createElement('li').appendChild(document.createTextNode(`${input.files.length} files selected`)));
+      for (let i = 0; i < input.files.length; i++) {
+        let fileListItem = document.createElement('li');
+        let fileTextNode = document.createTextNode(`${i + 1} ${input.files[i].name}`);
+        fileListItem.appendChild(fileTextNode);
+        filesList.appendChild(fileListItem);
+      }
     }
   }
 

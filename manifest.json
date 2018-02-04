@@ -1,0 +1,16 @@
+{
+  "manifest_version": 2,
+
+  "name": "JSON Localization Manager",
+  "description": "This extension comes to help with angular translate JSON resource files management",
+  "version": "1.0",
+
+  "browser_action": {
+    "default_icon": "jsonManager.png",
+    "default_popup": "popup.html"
+  },
+  "permissions": [
+    "activeTab",
+    "storage"
+  ]
+}
